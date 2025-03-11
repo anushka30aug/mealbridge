@@ -2,57 +2,57 @@ import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 
 export function middleware(req: NextRequest) {
+  console.log("Middleware called");
+
   const tokenFromUrl = req.nextUrl.searchParams.get("token");
   const tokenFromCookies = req.cookies.get("token")?.value;
-  const response = NextResponse.next();
+  const pathname = req.nextUrl.pathname;
+  const isOnSigninPage = pathname === "/signin";
 
-  // If the token is found in the URL, store it in cookies and redirect
+  console.log("Token from URL:", tokenFromUrl);
+  console.log("Token from Cookies:", tokenFromCookies);
+
+  // ✅ Set token from URL to cookies and redirect to /meals
   if (tokenFromUrl) {
-    console.log("Token found in URL, setting cookie...");
-
-      response.cookies.set("token", tokenFromUrl, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
-        maxAge: 7 * 24 * 60 * 60, // 7 days
-      });
-  
-      return NextResponse.redirect(new URL("/meals", req.url));
+    console.log("Setting token in cookies...");
+    const res = NextResponse.redirect(new URL("/meals", req.url));
+    res.cookies.set("token", tokenFromUrl, {
+      httpOnly: true,
+      secure: false, // Change to `true` in production
+      sameSite: "strict",
+      maxAge: 7 * 24 * 60 * 60, // 7 days
+    });
+    return res;
   }
 
-  // Routes that should not be accessible when logged in
-  if (req.nextUrl.pathname === "/signin" && tokenFromCookies) {
+  // ✅ If token exists in cookies, verify it
+  if (tokenFromCookies) {
     try {
-      jwt.verify(tokenFromCookies, process.env.JWT_SECRET as string);
-      return NextResponse.redirect(new URL("/meals", req.url)); // Redirect only if token is valid
-    } catch {
-      response.cookies.delete("token"); // Invalid token, remove it
+      // jwt.verify(tokenFromCookies, process.env.JWT_SECRET!);
+      // console.log("Token is valid");
+
+      // 🚀 If user is on /signin but already authenticated, redirect to /meals
+      if (isOnSigninPage) {
+        return NextResponse.redirect(new URL("/meals", req.url));
+      }
+      return NextResponse.next(); // ✅ Allow access
+    } catch (err : unknown) {
+      console.error("Invalid token:");
+      const res = NextResponse.redirect(new URL("/signin", req.url));
+      res.cookies.delete("token");
+      return res;
     }
   }
 
-  // If the user is not authenticated, redirect to signin (except for signin itself)
-  if (!tokenFromCookies && req.nextUrl.pathname !== "/signin") {
+  // 🛑 If no token and not on /signin, redirect to /signin
+  if (!tokenFromCookies && !isOnSigninPage) {
+    console.log("No token, redirecting to /signin");
     return NextResponse.redirect(new URL("/signin", req.url));
   }
 
-  if (!tokenFromCookies && req.nextUrl.pathname === "/signin") {
-    return response; // Let them stay on /signin
-  }
-
-
-  // Verify token validity
-  try {
-    if (!tokenFromCookies) throw new Error("No token found");
-    jwt.verify(tokenFromCookies, process.env.JWT_SECRET as string);
-  } catch {
-    response.cookies.delete("token");
-    return NextResponse.redirect(new URL("/signin", req.url));
-  }
-  
-  return NextResponse.next();
+  return NextResponse.next(); // ✅ Allow access to /signin
 }
 
-// Middleware runs on all pages except static assets and API routes
 export const config = {
   matcher: "/((?!_next/static|_next/image|favicon.ico|api).*)",
 };

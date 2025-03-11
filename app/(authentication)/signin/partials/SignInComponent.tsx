@@ -5,7 +5,7 @@ const SignInComponent = () => {
   const router = useRouter();
 
   const handleGoogleLogin = () => {
-    window.location.href = `http://localhost:3001/mealbridge/authentication/google?state=donor`;
+    window.location.href = `http://localhost:3001/mealbridge/authentication/google?state=receiver`;
   };
 
   return (
