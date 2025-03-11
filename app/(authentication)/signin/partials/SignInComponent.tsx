@@ -5,7 +5,7 @@ const SignInComponent = () => {
   const router = useRouter();
 
   const handleGoogleLogin = () => {
-    window.location.href = `http://10.81.202.179:3001/mealbridge/authentication/google?redirect=http://localhost:3000`;
+    window.location.href = `http://localhost:3001/mealbridge/authentication/google?state=donor`;
   };
 
   return (
@@ -16,7 +16,7 @@ const SignInComponent = () => {
         className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
       >
         Continue with Google
-      </button>
+      </button>  
     </div>
   );
 };
