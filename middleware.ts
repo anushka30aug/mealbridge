@@ -21,6 +21,11 @@ export async function middleware(req: NextRequest) {
   console.log("Token from URL:", tokenFromUrl);
   console.log("Token from Cookies:", tokenFromCookies);
 
+
+  if (pathname.startsWith("/assets/")) {
+    return NextResponse.next();
+  }
+
   if (tokenFromUrl) {
     console.log("Setting token in cookies...");
     const res = NextResponse.redirect(new URL("/", req.url));

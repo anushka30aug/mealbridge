@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-
+import { Google } from '../../../../public/icon';
 const SignInComponent = () => {
   const router = useRouter();
 
@@ -9,15 +9,18 @@ const SignInComponent = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-2xl font-bold mb-4">Sign - in</h1>
+    <div className="mx-auto md:min-h-screen md:flex md:flex-col md:items-center md:justify-center ">
+      <h1 className="text-2xl text-white font-bold mb-4">Sign - in</h1>
       <button
         onClick={handleGoogleLogin}
-        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+        className="bg-[#005e38] text-white md:text-black md:bg-white text-xl font-bold px-4 py-2 rounded-lg hover:bg-gray-200 cursor-pointer flex items-center gap-2"
       >
+        <Google />
         Continue with Google
-      </button>  
+      </button>
     </div>
+
+
   );
 };
 
