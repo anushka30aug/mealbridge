@@ -1,25 +1,19 @@
 import SignInComponent from "./partials/SignInComponent";
-
+import { FcGoogle } from "react-icons/fc";
 export default function SignIn() {
   return (
-    <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 items-center gap-4 md:gap-8 mt-4 md:mt-0">
-      {/* Left side - Video */}
-      <div className="h-full flex justify-center">
-        <video
-          autoPlay
-          loop
-          muted
-          className=" w-full h-full object-contain aspect-video"
-          src="/assets/signin.mp4"
-        />
+      <div className="w-full h-full md:flex">
+        <div className="h-[80%] md:h-full md:w-1/2">
+          <video
+            autoPlay
+            muted
+            className="w-full h-full object-contain aspect-video"
+            src="/assets/signin.mp4"
+          />
+        </div>
+        <div className="h-[20%] md:h-full md:w-1/2 flex flex-col items-center text-center bg-transparent md:bg-[#005e38]">
+          <SignInComponent />
+        </div>
       </div>
-
-
-      {/* Right side - Login options */}
-      <div className="flex flex-col items-center text-center bg-transparent md:bg-[#005e38]">
-        <SignInComponent />
-      </div>
-    </div>
-
   );
 }
