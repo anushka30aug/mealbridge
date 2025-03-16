@@ -1,20 +1,21 @@
 "use client";
-
 import { useRouter } from "next/navigation";
 
 export default function MealsPage() {
   const router = useRouter();
 
   const handleLogout = async () => {
-    await fetch("/api/logout"); // Call the API to clear the token
-    router.push("/signin"); // Redirect to signin
+    await fetch("/api/logout");
+    router.push("/signin");
   };
 
   return (
     <div>
       <h1>🍽 Meals Page</h1>
       <p>Welcome! Your authentication middleware seems to be working.</p>
-      <button onClick={handleLogout} style={buttonStyle}>Logout</button>
+      <button onClick={handleLogout} style={buttonStyle}>
+        Logout
+      </button>
     </div>
   );
 }

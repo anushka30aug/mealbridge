@@ -6,7 +6,10 @@ export async function middleware(req: NextRequest) {
 
   async function verifyToken(token: string) {
     try {
-      const { payload } = await jwtVerify(token, new TextEncoder().encode(process.env.JWT_SECRET!));
+      const { payload } = await jwtVerify(
+        token,
+        new TextEncoder().encode(process.env.JWT_SECRET!)
+      );
       return payload;
     } catch (error) {
       return null;
@@ -20,7 +23,6 @@ export async function middleware(req: NextRequest) {
 
   console.log("Token from URL:", tokenFromUrl);
   console.log("Token from Cookies:", tokenFromCookies);
-
 
   if (pathname.startsWith("/assets/")) {
     return NextResponse.next();
