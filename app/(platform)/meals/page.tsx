@@ -9,15 +9,14 @@ export default function MealsPage() {
     router.push("/signin");
   };
 
-  return (
-    <div>
-      <h1>🍽 Meals Page</h1>
-      <p>Welcome! Your authentication middleware seems to be working.</p>
-      <button onClick={handleLogout} style={buttonStyle}>
-        Logout
-      </button>
-    </div>
-  );
+  return;
+  <div>
+    <h1>🍽 Meals Page</h1>
+    <p>Welcome! Your authentication middleware seems to be working.</p>
+    <button onClick={handleLogout} style={buttonStyle}>
+      Logout
+    </button>
+  </div>;
 }
 
 const buttonStyle: React.CSSProperties = {
