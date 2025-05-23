@@ -12,19 +12,34 @@ const SocketContext = createContext<SocketContextType>({ socket: null });
 
 export const useSocket = () => useContext(SocketContext);
 
-export default function SocketProvider({ children }: { children: React.ReactNode }) {
+export default function SocketProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
     const socketInstance = getSocket();
-    socketInstance.connect(); 
+    socketInstance.connect();
 
     socketInstance.on("connect", () => {
       console.log("Connected to WebSocket");
+
+      const userId = localStorage.getItem("userId");
+      if (userId) {
+        socketInstance.emit("collector_connected", userId);
+        console.log("Emitted collector_connected", userId);
+      }
     });
-    socketInstance.on("catchdonor", (data)=>{
-        alert(data);
-    })
+    
+    socketInstance.on("meal_reservation_cancelled_by_donor", (data) => {
+      console.log("GHJKGFHJKGFHJ");
+      console.log(data);
+    });
+    socketInstance.on("catchdonor", (data) => {
+      alert(data);
+    });
 
     socketInstance.on("disconnect", () => {
       console.log("Disconnected from WebSocket");
@@ -37,5 +52,9 @@ export default function SocketProvider({ children }: { children: React.ReactNode
     };
   }, []);
 
-  return <SocketContext.Provider value={{ socket }}>{children}</SocketContext.Provider>;
+  return (
+    <SocketContext.Provider value={{ socket }}>
+      {children}
+    </SocketContext.Provider>
+  );
 }

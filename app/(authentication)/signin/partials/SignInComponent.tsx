@@ -2,9 +2,8 @@
 import { Button } from "@/components/ui/button";
 import { FcGoogle } from "react-icons/fc";
 const SignInComponent = () => {
-
   const handleGoogleLogin = () => {
-    window.location.href = `http://localhost:3001/authentication/google?state=receiver`;
+    window.location.href = `http://localhost:3001/authentication/google?state=collector`;
   };
 
   return (
