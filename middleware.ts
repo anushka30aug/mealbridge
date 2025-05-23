@@ -29,6 +29,10 @@ export async function middleware(req: NextRequest) {
   }
 
   if (tokenFromUrl) {
+    const payload = await verifyToken(tokenFromUrl);
+    if (!payload) {
+      return NextResponse.redirect(new URL("/signin", req.url));
+    }
     console.log("Setting token in cookies...");
     const res = NextResponse.redirect(new URL("/", req.url));
     res.cookies.set("token", tokenFromUrl, {
@@ -37,17 +41,28 @@ export async function middleware(req: NextRequest) {
       sameSite: "strict",
       maxAge: 7 * 24 * 60 * 60,
     });
+
+    if (payload.userId) {
+      res.cookies.set("userId", String(payload.userId), {
+        httpOnly: false,
+        secure: false,
+        sameSite: "strict",
+        maxAge: 7 * 24 * 60 * 60,
+      });
+    }
     return res;
   }
 
   if (tokenFromCookies) {
-    let decoded = await verifyToken(tokenFromCookies);
-    console.log("Decoded -  ", decoded);
-    if (!decoded) {
+    const payload = await verifyToken(tokenFromCookies);
+    console.log("Decoded -  ", payload);
+    if (!payload) {
       const res = NextResponse.redirect(new URL("/signin", req.url));
       res.cookies.delete("token");
+      res.cookies.delete("userId");
       return res;
     }
+
     if (isOnSigninPage) {
       return NextResponse.redirect(new URL("/", req.url));
     }

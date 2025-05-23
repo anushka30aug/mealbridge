@@ -5,7 +5,6 @@ export default function Home() {
   const { socket } = useSocket();
   const test = () => {
     if (!socket) return;
-    socket.emit("ngo", "I'll take that food and donate it for you.");
   };
   return (
     <div>
