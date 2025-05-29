@@ -3,6 +3,7 @@ import "./globals.css";
 import SocketProvider from "@/providers/socketProvider";
 import { cookies } from "next/headers";
 import ClientWrapper from "./client_wrapper";
+import ReactQueryProvider from "@/providers/react_query_provider";
 
 export const metadata: Metadata = {
   title: "MealBridge",
@@ -24,7 +25,7 @@ export default async function RootLayout({
         <ClientWrapper userId={userId} token={token}>
           <SocketProvider>
             Notification
-            {children}
+            <ReactQueryProvider>{children}</ReactQueryProvider>
           </SocketProvider>
         </ClientWrapper>
       </body>
