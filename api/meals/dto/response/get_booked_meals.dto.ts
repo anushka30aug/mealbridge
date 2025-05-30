@@ -11,8 +11,9 @@ export interface GetBookedMealDto {
   country: string;
   postalCode: number;
   preferredTime: string;
+  deliveryDate: string | null;
   expiryDate: string;
-  status: "delivered" | "expired" | "cancelled";
+  status: "reserved";
   collectorId: string | null;
   createdAt: string;
   updatedAt: string;

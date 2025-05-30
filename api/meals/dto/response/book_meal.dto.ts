@@ -12,10 +12,10 @@ export interface BookMealResponseDto {
   postalCode: number;
   preferredTime: string;
   expiryDate: string;
-  status: "delivered" | "expired" | "cancelled";
+  deliveryDate: string | null;
+  status: "reserved";
   collectorId: string | null;
   createdAt: string;
   updatedAt: string;
-  collectorOtp:Number|null;
+  collectorOtp: Number | null;
 }
-
