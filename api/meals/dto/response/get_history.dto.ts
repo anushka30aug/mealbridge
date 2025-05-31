@@ -11,6 +11,7 @@ export interface GetHistoryDto {
   country: string;
   postalCode: number;
   preferredTime: string;
+  deliveryDate: string | null;
   expiryDate: string;
   status: "delivered" | "expired" | "cancelled";
   collectorId: string | null;

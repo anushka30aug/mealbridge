@@ -11,11 +11,11 @@ export interface CancelBookedMealResponseDto {
   country: string;
   postalCode: number;
   preferredTime: string;
+  deliveryDate: string | null;
   expiryDate: string;
   status: "delivered" | "expired" | "cancelled";
   collectorId: string | null;
   createdAt: string;
   updatedAt: string;
-  collectorOtp:Number|null;
+  collectorOtp: Number | null;
 }
-

@@ -4,7 +4,7 @@ import { GetMealsResponseDto } from "./dto/response/get_meals.dto";
 
 export const getMeals = async () => {
   const { data: response } = await API.get<Response<GetMealsResponseDto>>(
-    "collector/view-meals"
+    "collector/get-available-meals"
   );
   return response.data!;
 };
