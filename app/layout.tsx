@@ -24,7 +24,7 @@ export default async function RootLayout({
       <body>
         <ClientWrapper userId={userId} token={token}>
           <SocketProvider>
-            Notification
+            {/* Notification */}
             <ReactQueryProvider>{children}</ReactQueryProvider>
           </SocketProvider>
         </ClientWrapper>
