@@ -13,11 +13,11 @@ export default function ClientWrapper({
 }) {
   useEffect(() => {
     if (userId) {
-      localStorage.setItem("userId", userId);
+      localStorage.setItem("collector_id", userId);
     }
 
     if (token) {
-      localStorage.setItem("token", token);
+      localStorage.setItem("collector_token", token);
     }
   }, [userId]);
 

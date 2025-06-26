@@ -17,7 +17,7 @@ export async function middleware(req: NextRequest) {
   }
 
   const tokenFromUrl = req.nextUrl.searchParams.get("token");
-  const tokenFromCookies = req.cookies.get("token")?.value;
+  const tokenFromCookies = req.cookies.get("collector_token")?.value;
   const pathname = req.nextUrl.pathname;
   const isOnSigninPage = pathname === "/signin";
 
@@ -35,7 +35,7 @@ export async function middleware(req: NextRequest) {
     }
     console.log("Setting token in cookies...");
     const res = NextResponse.redirect(new URL("/", req.url));
-    res.cookies.set("token", tokenFromUrl, {
+    res.cookies.set("collector_token", tokenFromUrl, {
       httpOnly: true,
       secure: false,
       sameSite: "strict",
@@ -43,7 +43,7 @@ export async function middleware(req: NextRequest) {
     });
 
     if (payload.userId) {
-      res.cookies.set("userId", String(payload.userId), {
+      res.cookies.set("collector_id", String(payload.userId), {
         httpOnly: false,
         secure: false,
         sameSite: "strict",
@@ -58,8 +58,8 @@ export async function middleware(req: NextRequest) {
     console.log("Decoded -  ", payload);
     if (!payload) {
       const res = NextResponse.redirect(new URL("/signin", req.url));
-      res.cookies.delete("token");
-      res.cookies.delete("userId");
+      res.cookies.delete("collector_token");
+      res.cookies.delete("collector_id");
       return res;
     }
 
