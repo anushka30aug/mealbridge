@@ -16,7 +16,7 @@ type ApiResponse<T = any> = {
 
 API.interceptors.request.use(async (config: InternalAxiosRequestConfig) => {
   if (typeof window !== "undefined") {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("collector_token");
     if (token) {
       config.headers["Authorization"] = `Bearer ${token}`;
     }

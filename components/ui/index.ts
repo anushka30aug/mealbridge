@@ -1,5 +1,6 @@
 import { Badge, badgeVariants } from "./badge";
 import { Button } from "./button";
+import { Toaster } from "./sonner";
 import {
   Card,
   CardHeader,
@@ -21,4 +22,5 @@ export {
   CardAction,
   CardDescription,
   CardContent,
+  Toaster,
 };
