@@ -19,7 +19,7 @@ export default async function RootLayout({
   const cookieStore = await cookies();
   const userId = cookieStore.get("collector_id")?.value || null;
   const token = cookieStore.get("collector_token")?.value || null;
-  console.log(userId);
+
   return (
     <html lang="en">
       <body>
