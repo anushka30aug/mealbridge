@@ -3,7 +3,7 @@ import CollectorAPI from "..";
 
 export const useGetCollectorProfile = (collectorId: string) => {
   return useQuery({
-    queryKey: ["collectorProfile", collectorId],
+    queryKey: ["get-collector-profile", collectorId],
     queryFn: () => CollectorAPI.getCollectorProfile(collectorId),
     enabled: !!collectorId,
   });
