@@ -22,7 +22,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./dialog";
-
+import { Label } from "./label";
+import { Switch } from "./switch";
+import { Slider } from "./slider";
 export {
   Badge,
   badgeVariants,
@@ -45,4 +47,7 @@ export {
   DialogPortal,
   DialogTitle,
   DialogTrigger,
+  Label,
+  Slider,
+  Switch,
 };
