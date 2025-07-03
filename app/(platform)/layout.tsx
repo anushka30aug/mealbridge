@@ -5,6 +5,8 @@ import { cookies } from "next/headers";
 import ClientWrapper from "../client_wrapper";
 import ReactQueryProvider from "@/providers/react_query_provider";
 import { NotificationProvider } from "@/providers/notification_provider";
+import { Header } from "@layout";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "MealBridge",
@@ -19,14 +21,19 @@ export default async function RootLayout({
   const cookieStore = await cookies();
   const userId = cookieStore.get("collector_id")?.value || null;
   const token = cookieStore.get("collector_token")?.value || null;
-
+  if (!userId || !token) {
+    redirect("/signin");
+  }
   return (
     <html lang="en">
       <body>
         <ClientWrapper userId={userId} token={token}>
           <ReactQueryProvider>
             <NotificationProvider>
-              <SocketProvider>{children}</SocketProvider>
+              <SocketProvider>
+                <Header collectorId={userId} />
+                {children}
+              </SocketProvider>
             </NotificationProvider>
           </ReactQueryProvider>
         </ClientWrapper>
