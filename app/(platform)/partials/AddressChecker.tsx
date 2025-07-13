@@ -17,8 +17,6 @@ export default function AddressChecker({ address }: { address: string }) {
     }
   }, [address]);
   return (
-    <>
       <AddressFormDialog open={open} setOpen={setOpen} showContact={true} />
-    </>
   );
 }

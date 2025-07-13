@@ -1,7 +1,7 @@
 import { GetCollectorProfileResponseDTO } from "@/api/collector/dto/response/get_collector_profile.dto";
 import { logout } from "../../../lib/logout";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger, Skeleton } from "@ui";
-import { Calendar, History, Home, LogOut, Menu } from "lucide-react";
+import { Calendar, History, Home, LogOut, Menu, User } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -35,10 +35,6 @@ export default function MobileMenuSheet({
   const handleHomeClick = () => {
     setIsSheetOpen(false);
     router.push(`/`);
-  };
-
-  const handleBookedClick = () => {
-    setIsSheetOpen(false);
   };
 
   return (
@@ -89,14 +85,14 @@ export default function MobileMenuSheet({
           {[
             { icon: <Home />, label: "Home", clickFunction: handleHomeClick },
             {
-              icon: <Calendar />,
-              label: "Booked",
-              clickFunction: handleBookedClick,
-            },
-            {
               icon: <History />,
               label: "History",
               clickFunction: handleHistoryClick,
+            },
+            {
+              icon: <User />,
+              label: "Account",
+              clickFunction: handleAccountClick,
             },
             {
               icon: <LogOut />,

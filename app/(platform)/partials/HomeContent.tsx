@@ -5,6 +5,7 @@ import MealHooks from "@/api/meals/hooks";
 import LocationBanner from "./LoactionBanner";
 import Filters from "../partials/Filters";
 import MealCard from "../partials/MealCard";
+import { Utensils } from "lucide-react";
 
 const { useGetMeals } = MealHooks;
 
@@ -14,7 +15,7 @@ export default function HomeContent({ address }: { address: string }) {
     minFeeds: 3,
   });
 
-  const { data, isLoading, isError } = useGetMeals({...filters});
+  const { data, isLoading, isError } = useGetMeals({ ...filters });
 
   const meals = data || [];
 
@@ -22,7 +23,9 @@ export default function HomeContent({ address }: { address: string }) {
     <main className="px-4 md:px-10 py-6 max-w-6xl mx-auto">
       <LocationBanner location={address} />
       <Filters onFilterChange={setFilters} />
-
+      <h2 className="text-xl font-semibold flex items-center gap-2 text-[#005e38] my-5">
+        <Utensils size={20} color="green"/> Available Meals <span className="text-gray-500 text-sm font-normal">({meals.length} found)</span>
+      </h2>
       {isLoading ? (
         <p className="text-gray-500 text-center mt-10">Loading meals...</p>
       ) : isError ? (
