@@ -12,7 +12,6 @@ export default function HeaderNavLinks() {
 
   const NAV_ITEMS = [
     { label: "Home", path: "", Icon: Home },
-    { label: "Booked", path: "booked", Icon: Calendar },
     { label: "History", path: "history", Icon: History },
     { label: "Account", path: "account", Icon: User },
   ];
