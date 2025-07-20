@@ -1,13 +1,13 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { UpdateCollectorProfileResponseDTO } from "../dto/response/update_collector_profile.dto";
-import { UpdateCollecotrAddressRequestDTO } from "../dto/request/update_collector_address.dto";
 import CollectorAPI from "..";
+import { UpdateCollectorProfileRequestDTO } from "../dto/request/update_collector_profile.dto";
 
 export const useUpdateCollectorProfile = (
   options?: UseMutationOptions<
     UpdateCollectorProfileResponseDTO,
     Error,
-    UpdateCollecotrAddressRequestDTO
+    UpdateCollectorProfileRequestDTO
   >
 ) => {
   return useMutation({

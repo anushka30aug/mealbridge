@@ -24,7 +24,7 @@ export default function Header({ collectorId }: { collectorId: string }) {
   return (
     <nav className="flex items-center justify-between p-4 px-6 border-b border-gray-200 mb-5">
       <h1 className="font-bold text-2xl text-[#005e38]">MealBridge</h1>
-      <HeaderNavLinks />
+      <HeaderNavLinks collectorId={collectorId} />
       <div className="flex items-center gap-4">
         <NotificationIcon />
         <div className="md:hidden">

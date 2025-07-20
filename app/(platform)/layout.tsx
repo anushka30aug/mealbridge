@@ -25,19 +25,15 @@ export default async function RootLayout({
     redirect("/signin");
   }
   return (
-    <html lang="en">
-      <body>
-        <ClientWrapper userId={userId} token={token}>
-          <ReactQueryProvider>
-            <NotificationProvider>
-              <SocketProvider>
-                <Header collectorId={userId} />
-                {children}
-              </SocketProvider>
-            </NotificationProvider>
-          </ReactQueryProvider>
-        </ClientWrapper>
-      </body>
-    </html>
+    <ClientWrapper userId={userId} token={token}>
+      <ReactQueryProvider>
+        <NotificationProvider>
+          <SocketProvider>
+            <Header collectorId={userId} />
+            {children}
+          </SocketProvider>
+        </NotificationProvider>
+      </ReactQueryProvider>
+    </ClientWrapper>
   );
 }
