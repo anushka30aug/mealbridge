@@ -7,13 +7,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 
-export default function HeaderNavLinks() {
+export default function HeaderNavLinks({
+  collectorId,
+}: {
+  collectorId: string;
+}) {
   // TODO: change paths according to actual routes
 
   const NAV_ITEMS = [
     { label: "Home", path: "", Icon: Home },
     { label: "History", path: "history", Icon: History },
-    { label: "Account", path: "account", Icon: User },
+    { label: "Account", path: `profile/collector/${collectorId}`, Icon: User },
   ];
 
   const pathname = usePathname();
@@ -31,7 +35,7 @@ export default function HeaderNavLinks() {
           key={path}
           className={clsx(
             "bg-white text-[#005e38] hover:bg-green-100 transition-colors duration-300 cursor-pointer",
-            activeSection === path &&
+            activeSection === (path.split("/").filter(Boolean)[0] || "") &&
               "bg-[#005e38] text-white hover:bg-[#005e38]"
           )}
         >

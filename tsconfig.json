@@ -20,12 +20,14 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@atoms": ["components/atoms"],
+      "@molecules": ["components/molecules"],
       "@ui": ["components/ui"],
       "@ui/*": ["components/ui/*"],
       "@layout": ["components/layout"],
       "@/*": ["./*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/atoms/LogOutButton"],
   "exclude": ["node_modules"]
 }

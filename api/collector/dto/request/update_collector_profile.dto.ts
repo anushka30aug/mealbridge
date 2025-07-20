@@ -4,6 +4,6 @@ export const UpdateCollecotrProfileRequestSchema = z.object({
   contact: z.string().regex(/^\d{10}$/, "Enter valid number"),
 });
 
-export type UpdateCollecotrProfileRequestDTO = z.infer<
+export type UpdateCollectorProfileRequestDTO = z.infer<
   typeof UpdateCollecotrProfileRequestSchema
 >;

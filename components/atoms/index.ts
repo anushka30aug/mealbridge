@@ -1,4 +1,5 @@
 import VegBadge from "./VegBadge";
 import StatusBadge from "./StatusBadge";
 import GetDetails from "./GetDetailsButton";
-export { VegBadge, StatusBadge, GetDetails };
+import LogOutButton from "./LogOutButton";
+export { VegBadge, StatusBadge, GetDetails, LogOutButton };

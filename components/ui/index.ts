@@ -48,6 +48,7 @@ import {
   SheetDescription,
 } from "./sheet";
 import { Skeleton } from "./skeleton";
+import { Input } from "./input";
 
 export {
   Badge,
@@ -93,4 +94,5 @@ export {
   SheetTitle,
   SheetDescription,
   Skeleton,
+  Input,
 };

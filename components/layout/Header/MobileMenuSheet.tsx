@@ -26,6 +26,7 @@ export default function MobileMenuSheet({
 
   const handleAccountClick = () => {
     setIsSheetOpen(false);
+    router.push(`/profile/collector/${collectorData?._id}`);
   };
 
   const handleHistoryClick = () => {

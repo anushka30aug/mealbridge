@@ -118,6 +118,8 @@ export default function AddressFormDialog({
     onSuccess: () => {
       toast.success("Address updated successfully");
       queryClient.invalidateQueries({ queryKey: ["get-collector-profile"] });
+      queryClient.invalidateQueries({ queryKey: ["get-meals"] });
+      queryClient.invalidateQueries({ queryKey: ["get-booked-meals"] });
       setOpen(false);
       reset({
         address: {

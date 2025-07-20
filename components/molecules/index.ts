@@ -1,2 +1,3 @@
 import AddressFormDialog from "./AddressForm";
-export { AddressFormDialog };
+import AddressCard from "./AddressCard";
+export { AddressFormDialog, AddressCard };
