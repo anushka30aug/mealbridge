@@ -8,6 +8,9 @@ export default async function HomePage() {
   const profile: GetCollectorProfileResponseDTO | null = await getProfile();
   const address = profile?.address?.address || "";
 
+  if (!profile) {
+    throw new Error("Something went wrong!");
+  }
   return (
     <>
       <AddressChecker address={address} />
@@ -23,7 +26,7 @@ export default async function HomePage() {
         </div>
       )}
       <BookedMealsSection />
-      <HomeContent address={address} />
+      <HomeContent collectorProfile={profile} />
     </>
   );
 }

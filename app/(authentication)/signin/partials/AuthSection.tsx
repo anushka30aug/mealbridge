@@ -10,7 +10,7 @@ export default function AuthSection() {
   return (
     <>
       <div className="bg-green-50 p-3 sm:p-20 ">
-        <Card className="shadow-md max-w-[500px] mx-auto shadow-xl border-none px-2 pb-5">
+        <Card className="shadow-md max-w-[500px] mx-auto border-none px-2 pb-5">
           <CardHeader className="flex items-center flex-col gap-4">
             <Utensils className="bg-[#005e38] h-15 w-15 text-white p-2 rounded-lg" />
             <h1 className="font-medium text-xl text-transparent bg-clip-text bg-gradient-to-b from-[#278049] to-green-600 ">

@@ -18,6 +18,8 @@ export default function handleMealReceived(
   toast.success(data.message || "Meal received successfully!");
 
   queryClient.invalidateQueries({ queryKey: ["get-booked-meals"] });
+  queryClient.invalidateQueries({ queryKey: ["get-meal", data.mealId] });
+  queryClient.invalidateQueries({ queryKey: ["get-meals"] });
   queryClient.invalidateQueries({ queryKey: ["get-history"] });
 
   return {

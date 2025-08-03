@@ -9,11 +9,11 @@ export interface GetMealDto {
   city: string;
   state: string;
   country: string;
-  postalCode: number;
+  postalCode: string;
   preferredTime: string;
   deliveryDate: string | null;
   expiryDate: string;
-  status: "available" | "delivered" | "expired" | "cancelled";
+  status: "available" | "delivered" | "expired" | "cancelled" | "reserved";
   collectorId: string | null;
   createdAt: string;
   updatedAt: string;

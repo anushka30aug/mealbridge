@@ -19,17 +19,17 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const cookieStore = await cookies();
-  const userId = cookieStore.get("collector_id")?.value || null;
+  const collectorId = cookieStore.get("collector_id")?.value || null;
   const token = cookieStore.get("collector_token")?.value || null;
-  if (!userId || !token) {
+  if (!collectorId || !token) {
     redirect("/signin");
   }
   return (
-    <ClientWrapper userId={userId} token={token}>
+    <ClientWrapper collectorId={collectorId} token={token}>
       <ReactQueryProvider>
         <NotificationProvider>
           <SocketProvider>
-            <Header collectorId={userId} />
+            <Header collectorId={collectorId} />
             {children}
           </SocketProvider>
         </NotificationProvider>
