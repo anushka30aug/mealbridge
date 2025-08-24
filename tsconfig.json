@@ -21,13 +21,21 @@
     "baseUrl": ".",
     "paths": {
       "@atoms": ["components/atoms"],
+      "@atoms/*": ["components/atoms/*"],
       "@molecules": ["components/molecules"],
+      "@molecules/*": ["components/molecules/*"],
       "@ui": ["components/ui"],
       "@ui/*": ["components/ui/*"],
       "@layout": ["components/layout"],
-      "@/*": ["./*"],
+      "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/atoms/LogOutButton"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "components/atoms/LogOutButton"
+  ],
   "exclude": ["node_modules"]
 }

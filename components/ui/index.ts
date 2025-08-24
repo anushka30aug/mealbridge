@@ -49,7 +49,8 @@ import {
 } from "./sheet";
 import { Skeleton } from "./skeleton";
 import { Input } from "./input";
-
+import { Separator } from "./separator";
+import { Avatar, AvatarImage, AvatarFallback } from "./avatar";
 export {
   Badge,
   badgeVariants,
@@ -95,4 +96,8 @@ export {
   SheetDescription,
   Skeleton,
   Input,
+  Separator,
+  Avatar,
+  AvatarImage,
+  AvatarFallback,
 };
