@@ -3,23 +3,23 @@
 import { useEffect } from "react";
 
 export default function ClientWrapper({
-  userId,
+  collectorId,
   token,
   children,
 }: {
-  userId: string | null;
+  collectorId: string | null;
   token: string | null;
   children: React.ReactNode;
 }) {
   useEffect(() => {
-    if (userId) {
-      localStorage.setItem("collector_id", userId);
+    if (collectorId) {
+      localStorage.setItem("collector_id", collectorId);
     }
 
     if (token) {
       localStorage.setItem("collector_token", token);
     }
-  }, [userId]);
+  }, [collectorId]);
 
   return <>{children}</>;
 }
