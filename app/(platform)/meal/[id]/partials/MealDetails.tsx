@@ -18,6 +18,9 @@ export default function MealDetailsPage({ id }: { id: string }) {
     MealHooks.useCancelBookedMeal({
       onSuccess: (response) => {
         queryClient.setQueryData(["get-meal", response._id], response);
+        queryClient.invalidateQueries({ queryKey: ["get-meals"] });
+        queryClient.invalidateQueries({ queryKey: ["get-history"] });
+        queryClient.invalidateQueries({ queryKey: ["get-booked-meals"] });
         toast.success("Booking Cancelled", {
           description: "You have cancelled the booking.",
         });
@@ -32,6 +35,10 @@ export default function MealDetailsPage({ id }: { id: string }) {
   const { mutate: bookMeal, isPending: isBooking } = MealHooks.useBookMeal({
     onSuccess: (response) => {
       queryClient.setQueryData(["get-meal", response._id], response);
+      queryClient.invalidateQueries({ queryKey: ["get-meals"] });
+      queryClient.invalidateQueries({ queryKey: ["get-history"] });
+      queryClient.invalidateQueries({ queryKey: ["get-booked-meals"] });
+
       toast.success("Meal Booked", {
         description: "You have successfully reserved this meal.",
       });

@@ -51,6 +51,13 @@ import { Skeleton } from "./skeleton";
 import { Input } from "./input";
 import { Separator } from "./separator";
 import { Avatar, AvatarImage, AvatarFallback } from "./avatar";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+} from "./tooltip";
+
 export {
   Badge,
   badgeVariants,
@@ -100,4 +107,8 @@ export {
   Avatar,
   AvatarImage,
   AvatarFallback,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
 };

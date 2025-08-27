@@ -34,7 +34,7 @@ export default function AddressCard({
               onClick={onEdit}
             >
               <PencilIcon className="h-4 w-4" />
-              <span className="hidden sm:inline">Edit Profile</span>
+              <span className="hidden sm:inline">Edit Address</span>
             </Button>
           )}
         </div>
@@ -42,7 +42,7 @@ export default function AddressCard({
 
       <CardContent>
         <div className="space-y-4">
-          <div className="bg-slate-50 rounded-lg p-4 border">
+          <div className="rounded-lg p-4 ">
             <div className="flex items-start gap-3">
               <Navigation className="w-5 h-5 text-slate-600 mt-1" />
               <div>
@@ -81,7 +81,7 @@ export default function AddressCard({
                 color: "text-orange-600",
               },
             ].map((item, index) => (
-              <div key={index} className="bg-white border rounded-lg p-3">
+              <div key={index} className="bg-white  rounded-lg p-3">
                 <div className="flex items-center gap-3">
                   <item.icon className={`w-4 h-4 ${item.color}`} />
                   <div>
