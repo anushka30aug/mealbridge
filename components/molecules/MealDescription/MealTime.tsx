@@ -13,7 +13,7 @@ export default function MealTime({ mealTime }: { mealTime: mealTime }) {
     mealTime.deliveryDate === null;
 
   return (
-    <Card className="border border-green-200 shadow-lg rounded-xl bg-white">
+    <Card className="border rounded-xl bg-white">
       <CardHeader className="flex items-center justify-between px-4 py-1">
         <CardTitle className="flex items-center gap-2 text-xl font-bold tracking-wide text-[#005e38] leading-tight">
           <Clock className="h-5 w-5" />
@@ -51,20 +51,15 @@ export default function MealTime({ mealTime }: { mealTime: mealTime }) {
             </div>
           </div>
 
-          {mealTime.deliveryDate && (
-            <>
-              <Separator />
-              <div className="space-y-1">
-                <div className="text-sm text-gray-500">Delivery Date</div>
-                <div className="font-medium">
-                  {format(
-                    new Date(mealTime.deliveryDate),
-                    "MMM dd, yyyy h:mm a"
-                  )}
-                </div>
-              </div>
-            </>
-          )}
+          <Separator />
+          <div className="space-y-1">
+            <div className="text-sm text-gray-500">Delivered On</div>
+            <div className="font-medium">
+              {mealTime.deliveryDate
+                ? format(new Date(mealTime.deliveryDate), "MMM dd, yyyy h:mm a")
+                : "-"}
+            </div>
+          </div>
         </div>
       </CardContent>
     </Card>

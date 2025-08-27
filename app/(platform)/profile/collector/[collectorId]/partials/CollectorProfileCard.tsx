@@ -19,7 +19,7 @@ export default function CollectorProfileCard(
   collectorData: CollectorProfileCardProps
 ) {
   return (
-    <Card className="border border-green-200 shadow-lg rounded-xl bg-white">
+    <Card className="border shadow-lg rounded-xl bg-white">
       <CardHeader className="flex items-center justify-between px-4 py-1">
         <CardTitle className="text-xl font-bold text-[#005e38] tracking-wide flex items-center gap-2 leading-tight">
           <User className="h-5 w-5" />
