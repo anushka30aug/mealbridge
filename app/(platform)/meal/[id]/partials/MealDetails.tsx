@@ -32,7 +32,7 @@ export default function MealDetailsPage({ id }: { id: string }) {
       },
     });
 
-  const { mutate: bookMeal, isPending: isBooking } = MealHooks.useBookMeal({
+  const { mutate: bookMeal } = MealHooks.useBookMeal({
     onSuccess: (response) => {
       queryClient.setQueryData(["get-meal", response._id], response);
       queryClient.invalidateQueries({ queryKey: ["get-meals"] });

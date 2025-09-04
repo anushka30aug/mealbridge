@@ -1,6 +1,6 @@
 import { AddressDTO } from "@/apiCalls/collector/dto/response/get_collector_profile.dto";
 import { Button, Dialog, DialogContent, DialogFooter, DialogTitle } from "@ui";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   UpdateCollecotrAddressRequestDTO,

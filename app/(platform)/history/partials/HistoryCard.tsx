@@ -1,7 +1,7 @@
 "use client";
 import { GetHistoryDto } from "@/apiCalls/meals/dto/response/get_history.dto";
+import { StatusBadge, VegBadge } from "@atoms";
 import {
-  Badge,
   Button,
   Card,
   CardContent,
@@ -14,15 +14,13 @@ import {
 import {
   Calendar,
   Clock,
-  Leaf,
   MapPin,
   Package,
   Users,
   CheckCircle,
-  XCircle,
-  Ban,
 } from "lucide-react";
 import Image from "next/image";
+
 import { useState } from "react";
 
 export default function HistoryCard({
@@ -34,47 +32,6 @@ export default function HistoryCard({
 }) {
   const [imageError, setImageError] = useState(false);
 
-  const getStatusBadge = (status: string) => {
-    switch (status.toLowerCase()) {
-      case "delivered":
-        return {
-          label: "Delivered",
-          icon: <CheckCircle className="w-3 h-3 mr-1" />,
-          style: "bg-green-50 text-green-700 border-green-200",
-        };
-      case "expired":
-        return {
-          label: "Expired",
-          icon: <XCircle className="w-3 h-3 mr-1" />,
-          style: "bg-red-50 text-red-700 border-red-200",
-        };
-      case "cancelled":
-        return {
-          label: "Cancelled",
-          icon: <Ban className="w-3 h-3 mr-1" />,
-          style: "bg-gray-50 text-gray-600 border-gray-200",
-        };
-      default:
-        return {
-          label: "Unknown",
-          icon: <Package className="w-3 h-3 mr-1" />,
-          style: "bg-gray-50 text-gray-600 border-gray-200",
-        };
-    }
-  };
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "delivered":
-        return "bg-green-50 text-green-700 border-green-200";
-      case "expired":
-        return "bg-red-50 text-red-700 border-red-200";
-      case "cancelled":
-        return "bg-gray-50 text-gray-700 border-gray-200";
-      default:
-        return "bg-gray-50 text-gray-700 border-gray-200";
-    }
-  };
-
   const formatDate = (dateString?: string) => {
     if (!dateString) return "Not available";
     return new Date(dateString).toLocaleDateString("en-US", {
@@ -84,8 +41,6 @@ export default function HistoryCard({
     });
   };
 
-  const status = getStatusBadge(item.status);
-
   return (
     <Card className="group hover:shadow-2xl transition-all duration-300 border border-gray-100 bg-white rounded-2xl overflow-hidden hover:scale-[1.01]">
       <CardHeader className="pb-3">
@@ -93,9 +48,10 @@ export default function HistoryCard({
           <div className="flex items-start gap-3 w-full">
             <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden bg-gray-50 flex-shrink-0">
               {!imageError ? (
-                <img
+                <Image
                   src={item.image}
                   alt={item.foodDesc}
+                  fill
                   className="w-full h-full object-cover"
                   onError={() => setImageError(true)}
                 />
@@ -110,41 +66,11 @@ export default function HistoryCard({
                 {item.foodDesc}
               </h3>
               <div className="flex flex-wrap items-center gap-2">
-                {item.veg && (
-                  <Badge
-                    variant="outline"
-                    className="text-green-600 border-green-200 bg-green-50 text-xs"
-                  >
-                    <Leaf className="w-3 h-3 mr-1" />
-                    Vegetarian
-                  </Badge>
-                )}
-                <Badge
-                  variant="outline"
-                  className={`font-medium text-xs ${getStatusColor(item.status)}`}
-                >
-                  {item.status.charAt(0).toUpperCase() + item.status.slice(1)}
-                </Badge>
+                <VegBadge isVeg={item.veg} />
+                <StatusBadge status={item.status} />
               </div>
             </div>
           </div>
-          {/* <div className="flex flex-wrap items-center gap-2 sm:hidden md:hidden lg:hidden">
-            {item.veg && (
-              <Badge
-                variant="outline"
-                className="text-green-600 border-green-200 bg-green-50 text-xs"
-              >
-                <Leaf className="w-3 h-3 mr-1" />
-                Vegetarian
-              </Badge>
-            )}
-            <Badge
-              variant="outline"
-              className={`font-medium text-xs ${getStatusColor(item.status)}`}
-            >
-              {item.status.charAt(0).toUpperCase() + item.status.slice(1)}
-            </Badge>
-          </div> */}
         </div>
       </CardHeader>
 

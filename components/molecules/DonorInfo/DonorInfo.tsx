@@ -14,7 +14,7 @@ import { format } from "date-fns";
 import DonorHooks from "@/apiCalls/donor/hooks";
 
 export default function DonorInfo({ donorId }: { donorId: string }) {
-  const { data: donor, isPending } = DonorHooks.useGetDonorProfile(donorId);
+  const { data: donor } = DonorHooks.useGetDonorProfile(donorId);
   const getInitials = (name: string) => {
     if (!name) return "?";
     return name
@@ -42,7 +42,7 @@ export default function DonorInfo({ donorId }: { donorId: string }) {
               crossOrigin="anonymous"
               referrerPolicy="no-referrer"
               onError={(e) => {
-                console.error("Image failed to load:", donor?.profilePicture);
+                console.error("Image failed to load:", donor?.profilePicture ,e);
               }}
               onLoad={() => {
                 console.log("Image loaded successfully");

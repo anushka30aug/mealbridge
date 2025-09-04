@@ -44,7 +44,7 @@ export default function GlobalStats() {
   return (
     <div className="my-5">
       <h1 className="text-lg font-bold text-center p-2 m-2 pb-0 mb-0 text-transparent bg-clip-text bg-gradient-to-b from-[#278049] to-green-600 ">
-        The Global Challenge We're Addressing
+        The Global Challenge We&apos;re Addressing
       </h1>
       <p className="text-gray-600 text-md text-center p-2 mb-2 pt-0 mt-0">
         Understanding the scale of global hunger helps us appreciate the

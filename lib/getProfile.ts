@@ -24,6 +24,7 @@ export default async function getProfile() {
       await response.json();
     return data.data!;
   } catch (e) {
+    console.log(e);
     return null;
   }
 }

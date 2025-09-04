@@ -8,7 +8,7 @@ export default function AuthSection() {
     if (process.env.ENV === "production") {
       baseurl = process.env.BACKEND_URL!;
     }
-    window.location.href = `${baseurl}/authentication/google?state=donor`;
+    window.location.href = `${baseurl}/authentication/google?state=collector`;
   };
 
   return (

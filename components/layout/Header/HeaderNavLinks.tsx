@@ -2,7 +2,7 @@
 
 import { Button } from "@ui";
 import clsx from "clsx";
-import { Calendar, History, Home, User } from "lucide-react";
+import { History, Home, User } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";

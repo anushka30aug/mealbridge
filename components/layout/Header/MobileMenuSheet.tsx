@@ -1,7 +1,7 @@
 import { GetCollectorProfileResponseDTO } from "@/apiCalls/collector/dto/response/get_collector_profile.dto";
 import { logout } from "../../../lib/logout";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger, Skeleton } from "@ui";
-import { Calendar, History, Home, LogOut, Menu, User } from "lucide-react";
+import { History, Home, LogOut, Menu, User } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

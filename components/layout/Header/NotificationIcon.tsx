@@ -1,7 +1,6 @@
 "use client";
 import { useNotifications } from "@/providers/notification_provider";
-import { Badge, Button } from "@ui";
-import { set } from "date-fns";
+import { Badge } from "@ui";
 import { Bell } from "lucide-react";
 
 export default function NotificationIcon() {

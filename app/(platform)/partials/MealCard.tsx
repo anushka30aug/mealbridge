@@ -4,7 +4,7 @@ import { Users } from "lucide-react";
 import Link from "next/link";
 import { GetMealDto } from "@/apiCalls/meals/dto/response/get_meals.dto";
 import { VegBadge, StatusBadge, GetDetails } from "@/components/atoms";
-import { formatDistanceToNowStrict, parseISO, isBefore } from "date-fns";
+import { formatDistanceToNowStrict, parseISO } from "date-fns";
 
 export default function MealCard({
   meal,

@@ -1,5 +1,3 @@
-import { Badge, Card, CardContent, CardHeader, CardTitle } from "@ui";
-import { ChefHat, Clock, Gift, Globe, MapPin, Users } from "lucide-react";
 import PlatformStats from "./PlatformStats";
 import GlobalStats from "./GlobalStats";
 
@@ -10,7 +8,7 @@ export default function StatsSection() {
         Our Progress & Global Impact
       </h1>
       <p className="text-lg text-center text-gray-600">
-        Track our growing impact while understanding the global challenge we're
+        Track our growing impact while understanding the global challenge We&apos;re
         working together to solve.
       </p>
       <PlatformStats />
