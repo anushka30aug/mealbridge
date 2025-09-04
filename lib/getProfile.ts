@@ -11,8 +11,8 @@ export default async function getProfile() {
     }
 
     let baseURL = "http://localhost:3001";
-    if (process.env.ENV === "production") {
-      baseURL = process.env.BACKEND_URL!;
+    if (process.env.NEXT_PUBLIC_ENV === "production") {
+      baseURL = process.env.NEXT_PUBLIC_BACKEND_URL!;
     }
     const response = await fetch(`${baseURL}/collector/${collectorId}`, {
       cache: "no-store",

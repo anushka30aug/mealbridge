@@ -5,8 +5,8 @@ import { FcGoogle } from "react-icons/fc";
 export default function AuthSection() {
   const handleGoogleLogin = () => {
     let baseurl = "http://localhost:3001";
-    if (process.env.ENV === "production") {
-      baseurl = process.env.BACKEND_URL!;
+    if (process.env.NEXT_PUBLIC_ENV === "production") {
+      baseurl = process.env.NEXT_PUBLIC_BACKEND_URL!;
     }
     window.location.href = `${baseurl}/authentication/google?state=collector`;
   };
