@@ -7,8 +7,8 @@ import { useQueryClient } from "@tanstack/react-query";
 import {
   UpdateCollectorProfileRequestDTO,
   UpdateCollecotrProfileRequestSchema,
-} from "@/api/collector/dto/request/update_collector_profile.dto";
-import CollectorHooks from "@/api/collector/hooks";
+} from "@/apiCalls/collector/dto/request/update_collector_profile.dto";
+import CollectorHooks from "@/apiCalls/collector/hooks";
 import {
   Button,
   Dialog,

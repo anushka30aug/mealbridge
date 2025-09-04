@@ -1,15 +1,15 @@
-import { AddressDTO } from "@/api/collector/dto/response/get_collector_profile.dto";
+import { AddressDTO } from "@/apiCalls/collector/dto/response/get_collector_profile.dto";
 import { Button, Dialog, DialogContent, DialogFooter, DialogTitle } from "@ui";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   UpdateCollecotrAddressRequestDTO,
   UpdateCollecotrAddressRequestSchema,
-} from "@/api/collector/dto/request/update_collector_address.dto";
+} from "@/apiCalls/collector/dto/request/update_collector_address.dto";
 import { toast } from "sonner";
 import axios from "axios";
 import { Locate } from "lucide-react";
-import { useUpdateCollectorAddress } from "@/api/collector/hooks/update_collector_address";
+import { useUpdateCollectorAddress } from "@/apiCalls/collector/hooks/update_collector_address";
 import { useQueryClient } from "@tanstack/react-query";
 export interface AddressFormDialogProps {
   open: boolean;

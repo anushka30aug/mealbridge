@@ -1,11 +1,13 @@
-import { GetBookedMealDto } from "@/api/meals/dto/response/get_booked_meals.dto";
+import { GetBookedMealDto } from "@/apiCalls/meals/dto/response/get_booked_meals.dto";
 import Image from "next/image";
 import Link from "next/link";
 import { Clock } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 
 export default function BookedMealCard({ meal }: { meal: GetBookedMealDto }) {
-  const timeLeft = formatDistanceToNow(new Date(meal.expiryDate), { addSuffix: true });
+  const timeLeft = formatDistanceToNow(new Date(meal.expiryDate), {
+    addSuffix: true,
+  });
 
   return (
     <div className="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden flex flex-col h-full">

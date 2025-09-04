@@ -1,12 +1,8 @@
-import { GetMealDto } from "@/api/meals/dto/response/get_meals.dto";
+import { GetMealDto } from "@/apiCalls/meals/dto/response/get_meals.dto";
 import MealIntro from "./MealIntro";
 import MealInfo from "./MealInfo";
 
-export default function MealDescription({
-  meal,
-}: {
-  meal: GetMealDto;
-}) {
+export default function MealDescription({ meal }: { meal: GetMealDto }) {
   return (
     <>
       <MealIntro meal={meal} />

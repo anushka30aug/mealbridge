@@ -1,6 +1,6 @@
 "use client";
 
-import MealHooks from "@/api/meals/hooks";
+import MealHooks from "@/apiCalls/meals/hooks";
 import {
   Carousel,
   CarouselContent,

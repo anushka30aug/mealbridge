@@ -1,4 +1,4 @@
-import { GetMealDto } from "@/api/meals/dto/response/get_meals.dto";
+import { GetMealDto } from "@/apiCalls/meals/dto/response/get_meals.dto";
 import { Card, CardContent } from "@ui";
 import { Calendar, Users } from "lucide-react";
 import { format } from "date-fns";

@@ -1,4 +1,4 @@
-import { GetCollectorProfileResponseDTO } from "@/api/collector/dto/response/get_collector_profile.dto";
+import { GetCollectorProfileResponseDTO } from "@/apiCalls/collector/dto/response/get_collector_profile.dto";
 import getProfile from "@/lib/getProfile";
 import AddressChecker from "./partials/AddressChecker";
 import HomeContent from "./partials/HomeContent";

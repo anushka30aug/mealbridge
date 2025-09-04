@@ -11,7 +11,7 @@ import {
 } from "@ui";
 import { User, Calendar, PhoneIcon } from "lucide-react";
 import { format } from "date-fns";
-import DonorHooks from "@/api/donor/hooks";
+import DonorHooks from "@/apiCalls/donor/hooks";
 
 export default function DonorInfo({ donorId }: { donorId: string }) {
   const { data: donor, isPending } = DonorHooks.useGetDonorProfile(donorId);

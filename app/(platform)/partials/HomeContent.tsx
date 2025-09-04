@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import MealHooks from "@/api/meals/hooks";
+import MealHooks from "@/apiCalls/meals/hooks";
 import LocationBanner from "./LoactionBanner";
 import Filters from "../partials/Filters";
 import MealCard from "../partials/MealCard";
 import { Utensils } from "lucide-react";
-import { GetCollectorProfileResponseDTO } from "@/api/collector/dto/response/get_collector_profile.dto";
+import { GetCollectorProfileResponseDTO } from "@/apiCalls/collector/dto/response/get_collector_profile.dto";
 
 const { useGetMeals } = MealHooks;
 

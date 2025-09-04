@@ -4,7 +4,7 @@ import HeaderNavLinks from "./HeaderNavLinks";
 import MobileMenuSheet from "./MobileMenuSheet";
 import NotificationDrawer from "./NotificationDrawer";
 import NotificationIcon from "./NotificationIcon";
-import CollectorHooks from "@/api/collector/hooks";
+import CollectorHooks from "@/apiCalls/collector/hooks";
 
 export default function Header({ collectorId }: { collectorId: string }) {
   const [isSheetOpen, setIsSheetOpen] = useState(false);

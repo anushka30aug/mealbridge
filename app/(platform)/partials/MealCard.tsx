@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Users } from "lucide-react";
 import Link from "next/link";
-import { GetMealDto } from "@/api/meals/dto/response/get_meals.dto";
+import { GetMealDto } from "@/apiCalls/meals/dto/response/get_meals.dto";
 import { VegBadge, StatusBadge, GetDetails } from "@/components/atoms";
 import { formatDistanceToNowStrict, parseISO, isBefore } from "date-fns";
 

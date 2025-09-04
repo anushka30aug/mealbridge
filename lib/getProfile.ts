@@ -1,5 +1,5 @@
-import { GetCollectorProfileResponseDTO } from "@/api/collector/dto/response/get_collector_profile.dto";
-import { Response } from "@/api/types";
+import { GetCollectorProfileResponseDTO } from "@/apiCalls/collector/dto/response/get_collector_profile.dto";
+import { Response } from "@/apiCalls/types";
 import { cookies } from "next/headers";
 
 export default async function getProfile() {
@@ -9,12 +9,14 @@ export default async function getProfile() {
     if (!collectorId) {
       return null;
     }
-    const response = await fetch(
-      `http://localhost:3001/collector/${collectorId}`,
-      {
-        cache: "no-store",
-      }
-    );
+
+    let baseURL = "http://localhost:3001";
+    if (process.env.ENV === "production") {
+      baseURL = process.env.BACKEND_URL!;
+    }
+    const response = await fetch(`${baseURL}/collector/${collectorId}`, {
+      cache: "no-store",
+    });
     if (!response.ok) {
       return null;
     }

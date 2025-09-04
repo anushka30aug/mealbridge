@@ -1,5 +1,5 @@
 "use client";
-import { GetHistoryDto } from "@/api/meals/dto/response/get_history.dto";
+import { GetHistoryDto } from "@/apiCalls/meals/dto/response/get_history.dto";
 import {
   Badge,
   Button,

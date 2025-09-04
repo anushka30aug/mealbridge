@@ -1,4 +1,4 @@
-import { GetMealDto } from "@/api/meals/dto/response/get_meals.dto";
+import { GetMealDto } from "@/apiCalls/meals/dto/response/get_meals.dto";
 import MealTime from "./MealTime";
 import { AddressCard } from "@molecules";
 export default function MealInfo({ meal }: { meal: GetMealDto }) {

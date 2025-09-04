@@ -1,6 +1,6 @@
 "use client";
 import { useQueryClient } from "@tanstack/react-query";
-import MealHooks from "@/api/meals/hooks";
+import MealHooks from "@/apiCalls/meals/hooks";
 import { Button, Card, Skeleton } from "@ui";
 import { toast } from "sonner";
 import { format } from "date-fns";

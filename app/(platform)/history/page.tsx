@@ -1,5 +1,5 @@
 "use client";
-import MealHooks from "@/api/meals/hooks";
+import MealHooks from "@/apiCalls/meals/hooks";
 import HistoryCard from "./partials/HistoryCard";
 import { useRouter } from "next/navigation";
 import { Skeleton } from "@ui"; // shadcn/ui Skeleton

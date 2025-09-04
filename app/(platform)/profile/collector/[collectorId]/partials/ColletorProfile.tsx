@@ -1,5 +1,5 @@
 "use client";
-import CollectorHooks from "@/api/collector/hooks";
+import CollectorHooks from "@/apiCalls/collector/hooks";
 import ProfileSkeleton from "./ProfileSkeleton";
 import { LogOutButton } from "@atoms";
 import { useEffect, useState } from "react";

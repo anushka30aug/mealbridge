@@ -1,4 +1,4 @@
-import { GetCollectorProfileResponseDTO } from "@/api/collector/dto/response/get_collector_profile.dto";
+import { GetCollectorProfileResponseDTO } from "@/apiCalls/collector/dto/response/get_collector_profile.dto";
 import { logout } from "../../../lib/logout";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger, Skeleton } from "@ui";
 import { Calendar, History, Home, LogOut, Menu, User } from "lucide-react";
