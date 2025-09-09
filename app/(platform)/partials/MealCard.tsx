@@ -73,7 +73,7 @@ export default function MealCard({
             <>
               {meal.foodDesc.slice(0, 50)}...
               <Link
-                href={`/my-active-meals/${meal._id}`}
+                href={`/meal/${meal._id}`}
                 className="text-[#00734a] font-semibold"
               >
                 {" "}

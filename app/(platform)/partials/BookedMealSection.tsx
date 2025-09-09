@@ -18,7 +18,6 @@ export default function BookedMealsSection() {
 
   return (
     <section className="w-full flex justify-center px-4 mb-8">
-      {/* Section Heading */}
       <div className="w-full max-w-5xl lg:mx-6">
         <div className="flex items-center gap-2 mb-4">
           <Sparkles className="text-green-600 w-4 h-4" />
@@ -26,7 +25,6 @@ export default function BookedMealsSection() {
             Your Booked Meals
           </h2>
         </div>
-        {/* Carousel Wrapper */}
         <div className="relative">
           <Carousel>
             <CarouselContent>
@@ -39,7 +37,6 @@ export default function BookedMealsSection() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            {/* Arrows */}
             <CarouselPrevious className="left-0 -translate-y-1/2 top-1/2" />
             <CarouselNext className="right-0 -translate-y-1/2 top-1/2" />
           </Carousel>
